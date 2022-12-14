@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Value Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="VORJAHRESWERT" placeholder="VORJAHRESWERT" required="required" />
+        <input type="text" name="ZWOELF_MONATE_MITTELWERT" placeholder="ZWOELF_MONATE_MITTELWERT" required="required" />
+		<input type="text" name="MONATSZAHL_Alkoholunfälle" placeholder="Alkoholunfälle(1 or 0)" required="required" />	
+		<input type="text" name="MONATSZAHL_Fluchtunfälle" placeholder="Fluchtunfälle(1 or 0)" required="required" />	
+		<input type="text" name="MONATSZAHL_Verkehrsunfälle" placeholder="Verkehrsunfälle(1 or 0)" required="required" />
+		<input type="text" name="AUSPRAEGUNG_Verletzte und Getötete" placeholder="Verletzte und Getötete(1 or 0)" required="required" />
+		<input type="text" name="AUSPRAEGUNG_insgesamt" placeholder="insgesamt(1 or 0)" required="required" />
+		<input type="text" name="AUSPRAEGUNG_insgesamtmit Personenschäden" placeholder="mit Personenschäden(1 or 0)" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
